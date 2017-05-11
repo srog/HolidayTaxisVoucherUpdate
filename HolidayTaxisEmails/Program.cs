@@ -17,16 +17,19 @@ namespace HolidayTaxisEmails
             Run("https://www.sandbox5.onthebeach.co.uk/a/admin/api/v3/transfers/", 
                 "Data Source=localhost\\SQLEXPRESS;Database=Transfers;Integrated Security=true",
                 "http://localhost:4149/service/TaxiBookingAPI.asmx",
+                150,
                 false);
 
             // LIVE
             //Run("https://www.sandbox5.onthebeach.co.uk/a/admin/api/v3/transfers/",
             //    "Data Source=172.21.3.114;Initial Catalog=OnTheBeachTransfers;Integrated Security=True;multipleactiveresultsets=True;App=HolidayTaxisVoucherUpdate",
             //    "http://www.onthebeachtransfers.co.uk/service/TaxiBookingAPI.asmx",
+            //    100);
             //    true);
 
         }
-        private static void Run(string adminEndpoint, string connectionString, string apiEndpoint, bool updateVoucher)
+        private static void Run(string adminEndpoint, string connectionString, string apiEndpoint, 
+                                int recordsToProcess, bool updateVoucher)
         { 
             var api = new TaxiBookingApi.TaxiBookingAPISoapClient(
                 new BasicHttpBinding(), 
@@ -36,7 +39,6 @@ namespace HolidayTaxisEmails
             
             using (conn)
             {
-                var recordsToProcess = 150;
                 var getBookingsSql =
                     $"SELECT TOP {recordsToProcess} BookingReference FROM dbo.BookingsRegeneratePaperwork WHERE PaperworkRegenerated = 0 ORDER BY DepartureDate";
                 
