@@ -1,0 +1,2140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI">
+      <s:element name="GetSupplierTerms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intSupplierID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSupplierTermsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSupplierTermsWSResponse" nillable="true" type="tns:mod_WSGetSupplierTerms" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="mod_WSGetSupplierTerms">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Terms" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:mod_WSErrorList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="mod_WSErrorList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Error" type="tns:mod_WSError" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="mod_WSError">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSupplierData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intSupplierID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSupplierDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSupplierDataWSResponse" nillable="true" type="tns:mod_WSGetSupplierData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="mod_WSGetSupplierData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Terms" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:mod_WSErrorList" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUKAirports">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUKAirportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUKAirportsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDestinations">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDestinationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDestinationsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOverseasAirports">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="destination" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOverseasAirportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOverseasAirportsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResorts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="airport" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResortsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResortsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamsToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerForename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerSurname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumAdults" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumChildren" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strChildAgeList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumVehicles" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strJourneyType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteOutboundFlightDepartureDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intOutboundFlightDepartureAirportID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intOutboundFlightDestinationAirportID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutboundFlightNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteOutboundFlightArrivalDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutboundDropOffAccommodationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutboundDropOffAccommodationTelNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutboundDropOffAccommodationAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInboundPickUpAccommodationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInboundPickUpAccommodationTelNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInboundPickUpAccommodationAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteInboundPickUpDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteInboundFlightDepartureDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intInboundFlightDepartureAirportID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intInboundFlightDestinationAirportID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInboundFlightNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intAccommodationResortID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamsTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetParamsTokenWSResponse" nillable="true" type="tns:mod_WSGetParamsToken" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="mod_WSGetParamsToken">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheapestReturnPriceGBP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheapestSinglePriceGBP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:mod_WSErrorList" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetParamsTokenForFlight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerForename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerSurname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumAdults" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumChildren" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumVehicles" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strJourneyType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intOverseasAirportID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteOutboundFlightDepartureDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intOutboundFlightDepartureAirportID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutboundFlightNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteOutboundFlightArrivalDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteInboundFlightDepartureDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intInboundFlightDestinationAirportID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInboundFlightNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamsTokenForFlightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetParamsTokenWSResponse" nillable="true" type="tns:mod_WSGetParamsToken" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamsTokenForHotel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerForename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerSurname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumAdults" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumChildren" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumVehicles" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intLocationID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLocationType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAccommodationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteTravelDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamsTokenForHotelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetParamsTokenWSResponse" nillable="true" type="tns:mod_WSGetParamsToken" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaxiSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agent_guid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="res_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="travel_date_from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="travel_date_to" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="size_of_party" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaxiSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaxiSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaxiSearch2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agent_guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="resorts" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="travel_date_from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="travel_date_to" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="size_of_party" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TaxiSearch2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaxiSearch2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelBooking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="book_ref" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agent_name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelBookingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelBookingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfirmationEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="book_ref" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="confirmation_type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfirmationEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConfirmationEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResendConfirmationEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="book_ref" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="confirmation_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="recipient" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResendConfirmationEmailResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AmendBooking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:ArrayOfAmendBookingValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAmendBookingValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AmendBookingValue" nillable="true" type="tns:AmendBookingValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AmendBookingValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AmendBookingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AmendBookingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFlightTimes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bookingId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="mybReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="outFlightNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="outDepartureTime" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="outArrivalTime" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="inFlightNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="inDepartureTime" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFlightTimesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateFlightTimesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaxiInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="taxi_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="travel_date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaxiInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaxiInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinalPrices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agent_guid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="taxi_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="travel_date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="journey_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="out_arr_time_hours" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="out_arr_time_mins" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="no_of_vehicles" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="no_of_passengers" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinalPricesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FinalPricesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BookTaxi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strBookingClerkName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerForename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerSurname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLeadPassengerEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumAdults" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumChildren" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intNumVehicles" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strChildAgeList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strJourneyType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOverseasAirportIATA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutboundFlightDepartureAirportIATA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteOutboundFlightDepartureDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteOutboundFlightArrivalDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutboundFlightNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutboundDropOffAccommodationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutboundDropOffAccommodationTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutboundDropOffAccommodationAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInboundPickUpAccommodationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInboundPickUpAccommodationTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInboundPickUpAccommodationAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInboundFlightNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dteInboundFlightDepartureDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInboundFlightDestinationAirportIATA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intTaxiID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bookingMethod" type="tns:BookingMethod" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnAllowDuplicates" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnTestMode" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTestEmailsTo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="BookingMethod">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unknown" />
+          <s:enumeration value="HotelOnly" />
+          <s:enumeration value="HotelAndFlight" />
+          <s:enumeration value="FlightOnly" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="BookTaxiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BookTaxiWSResponse" nillable="true" type="tns:mod_WSBookTaxi" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="mod_WSBookTaxi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumberOfVehicles" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransferType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReconfirmationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmergencyNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OfficeHours" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutboundArrivalInstructions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutboundSpecialInstructions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InboundArrivalInstructions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InboundSpecialInstructions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:mod_WSErrorList" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TakePayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="book_ref" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="payment_source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_start_date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_end_date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="amount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="security_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="issue_no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TakePaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TakePaymentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TakeRefund">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="book_ref" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agent_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="authorized_by" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="amount" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="refundType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TakeRefundResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TakeRefundResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSupplierTermsWSResponse" nillable="true" type="tns:mod_WSGetSupplierTerms" />
+      <s:element name="GetSupplierDataWSResponse" nillable="true" type="tns:mod_WSGetSupplierData" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamsTokenWSResponse" nillable="true" type="tns:mod_WSGetParamsToken" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="BookTaxiWSResponse" nillable="true" type="tns:mod_WSBookTaxi" />
+    </s:schema>
+    <s:schema targetNamespace="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSupplierTermsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSupplierTerms" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierTermsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSupplierTermsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSupplierData" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSupplierDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUKAirportsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUKAirports" />
+  </wsdl:message>
+  <wsdl:message name="GetUKAirportsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUKAirportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDestinationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDestinations" />
+  </wsdl:message>
+  <wsdl:message name="GetDestinationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDestinationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOverseasAirportsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOverseasAirports" />
+  </wsdl:message>
+  <wsdl:message name="GetOverseasAirportsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOverseasAirportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResortsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResorts" />
+  </wsdl:message>
+  <wsdl:message name="GetResortsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResortsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParamsToken" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParamsTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForFlightSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParamsTokenForFlight" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForFlightSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParamsTokenForFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForHotelSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParamsTokenForHotel" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForHotelSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParamsTokenForHotelResponse" />
+  </wsdl:message>
+  <wsdl:message name="TaxiSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:TaxiSearch" />
+  </wsdl:message>
+  <wsdl:message name="TaxiSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:TaxiSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="TaxiSearch2SoapIn">
+    <wsdl:part name="parameters" element="tns:TaxiSearch2" />
+  </wsdl:message>
+  <wsdl:message name="TaxiSearch2SoapOut">
+    <wsdl:part name="parameters" element="tns:TaxiSearch2Response" />
+  </wsdl:message>
+  <wsdl:message name="CancelBookingSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelBooking" />
+  </wsdl:message>
+  <wsdl:message name="CancelBookingSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConfirmationEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConfirmationEmail" />
+  </wsdl:message>
+  <wsdl:message name="GetConfirmationEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConfirmationEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResendConfirmationEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:ResendConfirmationEmail" />
+  </wsdl:message>
+  <wsdl:message name="ResendConfirmationEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:ResendConfirmationEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AmendBookingSoapIn">
+    <wsdl:part name="parameters" element="tns:AmendBooking" />
+  </wsdl:message>
+  <wsdl:message name="AmendBookingSoapOut">
+    <wsdl:part name="parameters" element="tns:AmendBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFlightTimesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFlightTimes" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFlightTimesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFlightTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TaxiInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:TaxiInfo" />
+  </wsdl:message>
+  <wsdl:message name="TaxiInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:TaxiInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FinalPricesSoapIn">
+    <wsdl:part name="parameters" element="tns:FinalPrices" />
+  </wsdl:message>
+  <wsdl:message name="FinalPricesSoapOut">
+    <wsdl:part name="parameters" element="tns:FinalPricesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BookTaxiSoapIn">
+    <wsdl:part name="parameters" element="tns:BookTaxi" />
+  </wsdl:message>
+  <wsdl:message name="BookTaxiSoapOut">
+    <wsdl:part name="parameters" element="tns:BookTaxiResponse" />
+  </wsdl:message>
+  <wsdl:message name="TakePaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:TakePayment" />
+  </wsdl:message>
+  <wsdl:message name="TakePaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:TakePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="TakeRefundSoapIn">
+    <wsdl:part name="parameters" element="tns:TakeRefund" />
+  </wsdl:message>
+  <wsdl:message name="TakeRefundSoapOut">
+    <wsdl:part name="parameters" element="tns:TakeRefundResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierTermsHttpGetIn">
+    <wsdl:part name="intSupplierID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierTermsHttpGetOut">
+    <wsdl:part name="Body" element="tns:GetSupplierTermsWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierDataHttpGetIn">
+    <wsdl:part name="intSupplierID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:GetSupplierDataWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUKAirportsHttpGetIn" />
+  <wsdl:message name="GetUKAirportsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDestinationsHttpGetIn" />
+  <wsdl:message name="GetDestinationsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetOverseasAirportsHttpGetIn">
+    <wsdl:part name="destination" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOverseasAirportsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetResortsHttpGetIn">
+    <wsdl:part name="airport" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetResortsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenHttpGetIn">
+    <wsdl:part name="strLeadPassengerTitle" type="s:string" />
+    <wsdl:part name="strLeadPassengerForename" type="s:string" />
+    <wsdl:part name="strLeadPassengerSurname" type="s:string" />
+    <wsdl:part name="strLeadPassengerMobile" type="s:string" />
+    <wsdl:part name="strLeadPassengerEmail" type="s:string" />
+    <wsdl:part name="intNumAdults" type="s:string" />
+    <wsdl:part name="intNumChildren" type="s:string" />
+    <wsdl:part name="strChildAgeList" type="s:string" />
+    <wsdl:part name="intNumVehicles" type="s:string" />
+    <wsdl:part name="strJourneyType" type="s:string" />
+    <wsdl:part name="dteOutboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="intOutboundFlightDepartureAirportID" type="s:string" />
+    <wsdl:part name="intOutboundFlightDestinationAirportID" type="s:string" />
+    <wsdl:part name="strOutboundFlightNumber" type="s:string" />
+    <wsdl:part name="dteOutboundFlightArrivalDateTime" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationName" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationTelNo" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationAddress" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationName" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationTelNo" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationAddress" type="s:string" />
+    <wsdl:part name="dteInboundPickUpDateTime" type="s:string" />
+    <wsdl:part name="dteInboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="intInboundFlightDepartureAirportID" type="s:string" />
+    <wsdl:part name="intInboundFlightDestinationAirportID" type="s:string" />
+    <wsdl:part name="strInboundFlightNumber" type="s:string" />
+    <wsdl:part name="intAccommodationResortID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:GetParamsTokenWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForFlightHttpGetIn">
+    <wsdl:part name="strLeadPassengerTitle" type="s:string" />
+    <wsdl:part name="strLeadPassengerForename" type="s:string" />
+    <wsdl:part name="strLeadPassengerSurname" type="s:string" />
+    <wsdl:part name="strLeadPassengerMobile" type="s:string" />
+    <wsdl:part name="strLeadPassengerEmail" type="s:string" />
+    <wsdl:part name="intNumAdults" type="s:string" />
+    <wsdl:part name="intNumChildren" type="s:string" />
+    <wsdl:part name="intNumVehicles" type="s:string" />
+    <wsdl:part name="strJourneyType" type="s:string" />
+    <wsdl:part name="intOverseasAirportID" type="s:string" />
+    <wsdl:part name="dteOutboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="intOutboundFlightDepartureAirportID" type="s:string" />
+    <wsdl:part name="strOutboundFlightNumber" type="s:string" />
+    <wsdl:part name="dteOutboundFlightArrivalDateTime" type="s:string" />
+    <wsdl:part name="dteInboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="intInboundFlightDestinationAirportID" type="s:string" />
+    <wsdl:part name="strInboundFlightNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForFlightHttpGetOut">
+    <wsdl:part name="Body" element="tns:GetParamsTokenWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForHotelHttpGetIn">
+    <wsdl:part name="strLeadPassengerTitle" type="s:string" />
+    <wsdl:part name="strLeadPassengerForename" type="s:string" />
+    <wsdl:part name="strLeadPassengerSurname" type="s:string" />
+    <wsdl:part name="strLeadPassengerMobile" type="s:string" />
+    <wsdl:part name="strLeadPassengerEmail" type="s:string" />
+    <wsdl:part name="intNumAdults" type="s:string" />
+    <wsdl:part name="intNumChildren" type="s:string" />
+    <wsdl:part name="intNumVehicles" type="s:string" />
+    <wsdl:part name="intLocationID" type="s:string" />
+    <wsdl:part name="strLocationType" type="s:string" />
+    <wsdl:part name="strAccommodationName" type="s:string" />
+    <wsdl:part name="dteTravelDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForHotelHttpGetOut">
+    <wsdl:part name="Body" element="tns:GetParamsTokenWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="TaxiSearch2HttpGetIn">
+    <wsdl:part name="agent_guid" type="s:string" />
+    <wsdl:part name="resorts" type="s1:StringArray" />
+    <wsdl:part name="travel_date_from" type="s:string" />
+    <wsdl:part name="travel_date_to" type="s:string" />
+    <wsdl:part name="size_of_party" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TaxiSearch2HttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CancelBookingHttpGetIn">
+    <wsdl:part name="book_ref" type="s:string" />
+    <wsdl:part name="agent_name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelBookingHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetConfirmationEmailHttpGetIn">
+    <wsdl:part name="book_ref" type="s:string" />
+    <wsdl:part name="confirmation_type" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetConfirmationEmailHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ResendConfirmationEmailHttpGetIn">
+    <wsdl:part name="book_ref" type="s:string" />
+    <wsdl:part name="confirmation_type" type="s:string" />
+    <wsdl:part name="recipient" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ResendConfirmationEmailHttpGetOut" />
+  <wsdl:message name="TaxiInfoHttpGetIn">
+    <wsdl:part name="taxi_id" type="s:string" />
+    <wsdl:part name="travel_date" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TaxiInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="FinalPricesHttpGetIn">
+    <wsdl:part name="agent_guid" type="s:string" />
+    <wsdl:part name="taxi_id" type="s:string" />
+    <wsdl:part name="travel_date" type="s:string" />
+    <wsdl:part name="journey_type" type="s:string" />
+    <wsdl:part name="out_arr_time_hours" type="s:string" />
+    <wsdl:part name="out_arr_time_mins" type="s:string" />
+    <wsdl:part name="no_of_vehicles" type="s:string" />
+    <wsdl:part name="no_of_passengers" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FinalPricesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="BookTaxiHttpGetIn">
+    <wsdl:part name="strBookingClerkName" type="s:string" />
+    <wsdl:part name="strLeadPassengerTitle" type="s:string" />
+    <wsdl:part name="strLeadPassengerForename" type="s:string" />
+    <wsdl:part name="strLeadPassengerSurname" type="s:string" />
+    <wsdl:part name="strLeadPassengerMobile" type="s:string" />
+    <wsdl:part name="strLeadPassengerEmail" type="s:string" />
+    <wsdl:part name="intNumAdults" type="s:string" />
+    <wsdl:part name="intNumChildren" type="s:string" />
+    <wsdl:part name="intNumVehicles" type="s:string" />
+    <wsdl:part name="strChildAgeList" type="s:string" />
+    <wsdl:part name="strJourneyType" type="s:string" />
+    <wsdl:part name="strOverseasAirportIATA" type="s:string" />
+    <wsdl:part name="strOutboundFlightDepartureAirportIATA" type="s:string" />
+    <wsdl:part name="dteOutboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="dteOutboundFlightArrivalDateTime" type="s:string" />
+    <wsdl:part name="strOutboundFlightNumber" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationName" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationTel" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationAddress" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationName" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationTel" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationAddress" type="s:string" />
+    <wsdl:part name="strInboundFlightNumber" type="s:string" />
+    <wsdl:part name="dteInboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="strInboundFlightDestinationAirportIATA" type="s:string" />
+    <wsdl:part name="intTaxiID" type="s:string" />
+    <wsdl:part name="bookingMethod" type="s:string" />
+    <wsdl:part name="blnAllowDuplicates" type="s:string" />
+    <wsdl:part name="blnTestMode" type="s:string" />
+    <wsdl:part name="strTestEmailsTo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BookTaxiHttpGetOut">
+    <wsdl:part name="Body" element="tns:BookTaxiWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="TakePaymentHttpGetIn">
+    <wsdl:part name="book_ref" type="s:string" />
+    <wsdl:part name="payment_source" type="s:string" />
+    <wsdl:part name="card_type" type="s:string" />
+    <wsdl:part name="card_name" type="s:string" />
+    <wsdl:part name="card_number" type="s:string" />
+    <wsdl:part name="card_start_date" type="s:string" />
+    <wsdl:part name="card_end_date" type="s:string" />
+    <wsdl:part name="cost" type="s:string" />
+    <wsdl:part name="amount" type="s:string" />
+    <wsdl:part name="security_code" type="s:string" />
+    <wsdl:part name="issue_no" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TakePaymentHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TakeRefundHttpGetIn">
+    <wsdl:part name="book_ref" type="s:string" />
+    <wsdl:part name="agent_name" type="s:string" />
+    <wsdl:part name="authorized_by" type="s:string" />
+    <wsdl:part name="amount" type="s:string" />
+    <wsdl:part name="refundType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TakeRefundHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierTermsHttpPostIn">
+    <wsdl:part name="intSupplierID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierTermsHttpPostOut">
+    <wsdl:part name="Body" element="tns:GetSupplierTermsWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierDataHttpPostIn">
+    <wsdl:part name="intSupplierID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSupplierDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:GetSupplierDataWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUKAirportsHttpPostIn" />
+  <wsdl:message name="GetUKAirportsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDestinationsHttpPostIn" />
+  <wsdl:message name="GetDestinationsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetOverseasAirportsHttpPostIn">
+    <wsdl:part name="destination" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOverseasAirportsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetResortsHttpPostIn">
+    <wsdl:part name="airport" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetResortsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenHttpPostIn">
+    <wsdl:part name="strLeadPassengerTitle" type="s:string" />
+    <wsdl:part name="strLeadPassengerForename" type="s:string" />
+    <wsdl:part name="strLeadPassengerSurname" type="s:string" />
+    <wsdl:part name="strLeadPassengerMobile" type="s:string" />
+    <wsdl:part name="strLeadPassengerEmail" type="s:string" />
+    <wsdl:part name="intNumAdults" type="s:string" />
+    <wsdl:part name="intNumChildren" type="s:string" />
+    <wsdl:part name="strChildAgeList" type="s:string" />
+    <wsdl:part name="intNumVehicles" type="s:string" />
+    <wsdl:part name="strJourneyType" type="s:string" />
+    <wsdl:part name="dteOutboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="intOutboundFlightDepartureAirportID" type="s:string" />
+    <wsdl:part name="intOutboundFlightDestinationAirportID" type="s:string" />
+    <wsdl:part name="strOutboundFlightNumber" type="s:string" />
+    <wsdl:part name="dteOutboundFlightArrivalDateTime" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationName" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationTelNo" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationAddress" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationName" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationTelNo" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationAddress" type="s:string" />
+    <wsdl:part name="dteInboundPickUpDateTime" type="s:string" />
+    <wsdl:part name="dteInboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="intInboundFlightDepartureAirportID" type="s:string" />
+    <wsdl:part name="intInboundFlightDestinationAirportID" type="s:string" />
+    <wsdl:part name="strInboundFlightNumber" type="s:string" />
+    <wsdl:part name="intAccommodationResortID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:GetParamsTokenWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForFlightHttpPostIn">
+    <wsdl:part name="strLeadPassengerTitle" type="s:string" />
+    <wsdl:part name="strLeadPassengerForename" type="s:string" />
+    <wsdl:part name="strLeadPassengerSurname" type="s:string" />
+    <wsdl:part name="strLeadPassengerMobile" type="s:string" />
+    <wsdl:part name="strLeadPassengerEmail" type="s:string" />
+    <wsdl:part name="intNumAdults" type="s:string" />
+    <wsdl:part name="intNumChildren" type="s:string" />
+    <wsdl:part name="intNumVehicles" type="s:string" />
+    <wsdl:part name="strJourneyType" type="s:string" />
+    <wsdl:part name="intOverseasAirportID" type="s:string" />
+    <wsdl:part name="dteOutboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="intOutboundFlightDepartureAirportID" type="s:string" />
+    <wsdl:part name="strOutboundFlightNumber" type="s:string" />
+    <wsdl:part name="dteOutboundFlightArrivalDateTime" type="s:string" />
+    <wsdl:part name="dteInboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="intInboundFlightDestinationAirportID" type="s:string" />
+    <wsdl:part name="strInboundFlightNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForFlightHttpPostOut">
+    <wsdl:part name="Body" element="tns:GetParamsTokenWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForHotelHttpPostIn">
+    <wsdl:part name="strLeadPassengerTitle" type="s:string" />
+    <wsdl:part name="strLeadPassengerForename" type="s:string" />
+    <wsdl:part name="strLeadPassengerSurname" type="s:string" />
+    <wsdl:part name="strLeadPassengerMobile" type="s:string" />
+    <wsdl:part name="strLeadPassengerEmail" type="s:string" />
+    <wsdl:part name="intNumAdults" type="s:string" />
+    <wsdl:part name="intNumChildren" type="s:string" />
+    <wsdl:part name="intNumVehicles" type="s:string" />
+    <wsdl:part name="intLocationID" type="s:string" />
+    <wsdl:part name="strLocationType" type="s:string" />
+    <wsdl:part name="strAccommodationName" type="s:string" />
+    <wsdl:part name="dteTravelDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsTokenForHotelHttpPostOut">
+    <wsdl:part name="Body" element="tns:GetParamsTokenWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="TaxiSearch2HttpPostIn">
+    <wsdl:part name="agent_guid" type="s:string" />
+    <wsdl:part name="resorts" type="s1:StringArray" />
+    <wsdl:part name="travel_date_from" type="s:string" />
+    <wsdl:part name="travel_date_to" type="s:string" />
+    <wsdl:part name="size_of_party" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TaxiSearch2HttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CancelBookingHttpPostIn">
+    <wsdl:part name="book_ref" type="s:string" />
+    <wsdl:part name="agent_name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelBookingHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetConfirmationEmailHttpPostIn">
+    <wsdl:part name="book_ref" type="s:string" />
+    <wsdl:part name="confirmation_type" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetConfirmationEmailHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ResendConfirmationEmailHttpPostIn">
+    <wsdl:part name="book_ref" type="s:string" />
+    <wsdl:part name="confirmation_type" type="s:string" />
+    <wsdl:part name="recipient" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ResendConfirmationEmailHttpPostOut" />
+  <wsdl:message name="TaxiInfoHttpPostIn">
+    <wsdl:part name="taxi_id" type="s:string" />
+    <wsdl:part name="travel_date" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TaxiInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="FinalPricesHttpPostIn">
+    <wsdl:part name="agent_guid" type="s:string" />
+    <wsdl:part name="taxi_id" type="s:string" />
+    <wsdl:part name="travel_date" type="s:string" />
+    <wsdl:part name="journey_type" type="s:string" />
+    <wsdl:part name="out_arr_time_hours" type="s:string" />
+    <wsdl:part name="out_arr_time_mins" type="s:string" />
+    <wsdl:part name="no_of_vehicles" type="s:string" />
+    <wsdl:part name="no_of_passengers" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FinalPricesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="BookTaxiHttpPostIn">
+    <wsdl:part name="strBookingClerkName" type="s:string" />
+    <wsdl:part name="strLeadPassengerTitle" type="s:string" />
+    <wsdl:part name="strLeadPassengerForename" type="s:string" />
+    <wsdl:part name="strLeadPassengerSurname" type="s:string" />
+    <wsdl:part name="strLeadPassengerMobile" type="s:string" />
+    <wsdl:part name="strLeadPassengerEmail" type="s:string" />
+    <wsdl:part name="intNumAdults" type="s:string" />
+    <wsdl:part name="intNumChildren" type="s:string" />
+    <wsdl:part name="intNumVehicles" type="s:string" />
+    <wsdl:part name="strChildAgeList" type="s:string" />
+    <wsdl:part name="strJourneyType" type="s:string" />
+    <wsdl:part name="strOverseasAirportIATA" type="s:string" />
+    <wsdl:part name="strOutboundFlightDepartureAirportIATA" type="s:string" />
+    <wsdl:part name="dteOutboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="dteOutboundFlightArrivalDateTime" type="s:string" />
+    <wsdl:part name="strOutboundFlightNumber" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationName" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationTel" type="s:string" />
+    <wsdl:part name="strOutboundDropOffAccommodationAddress" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationName" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationTel" type="s:string" />
+    <wsdl:part name="strInboundPickUpAccommodationAddress" type="s:string" />
+    <wsdl:part name="strInboundFlightNumber" type="s:string" />
+    <wsdl:part name="dteInboundFlightDepartureDateTime" type="s:string" />
+    <wsdl:part name="strInboundFlightDestinationAirportIATA" type="s:string" />
+    <wsdl:part name="intTaxiID" type="s:string" />
+    <wsdl:part name="bookingMethod" type="s:string" />
+    <wsdl:part name="blnAllowDuplicates" type="s:string" />
+    <wsdl:part name="blnTestMode" type="s:string" />
+    <wsdl:part name="strTestEmailsTo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BookTaxiHttpPostOut">
+    <wsdl:part name="Body" element="tns:BookTaxiWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="TakePaymentHttpPostIn">
+    <wsdl:part name="book_ref" type="s:string" />
+    <wsdl:part name="payment_source" type="s:string" />
+    <wsdl:part name="card_type" type="s:string" />
+    <wsdl:part name="card_name" type="s:string" />
+    <wsdl:part name="card_number" type="s:string" />
+    <wsdl:part name="card_start_date" type="s:string" />
+    <wsdl:part name="card_end_date" type="s:string" />
+    <wsdl:part name="cost" type="s:string" />
+    <wsdl:part name="amount" type="s:string" />
+    <wsdl:part name="security_code" type="s:string" />
+    <wsdl:part name="issue_no" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TakePaymentHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TakeRefundHttpPostIn">
+    <wsdl:part name="book_ref" type="s:string" />
+    <wsdl:part name="agent_name" type="s:string" />
+    <wsdl:part name="authorized_by" type="s:string" />
+    <wsdl:part name="amount" type="s:string" />
+    <wsdl:part name="refundType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TakeRefundHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="TaxiBookingAPISoap">
+    <wsdl:operation name="GetSupplierTerms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing the terms and conditions for the specified supplier</wsdl:documentation>
+      <wsdl:input message="tns:GetSupplierTermsSoapIn" />
+      <wsdl:output message="tns:GetSupplierTermsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing supplier data for the specified supplier</wsdl:documentation>
+      <wsdl:input message="tns:GetSupplierDataSoapIn" />
+      <wsdl:output message="tns:GetSupplierDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUKAirports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing UK airport names and IDs</wsdl:documentation>
+      <wsdl:input message="tns:GetUKAirportsSoapIn" />
+      <wsdl:output message="tns:GetUKAirportsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDestinations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing destination names and IDs</wsdl:documentation>
+      <wsdl:input message="tns:GetDestinationsSoapIn" />
+      <wsdl:output message="tns:GetDestinationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOverseasAirports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing airport names and IDs for the given destination</wsdl:documentation>
+      <wsdl:input message="tns:GetOverseasAirportsSoapIn" />
+      <wsdl:output message="tns:GetOverseasAirportsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResorts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing resort names and IDs for the given airport</wsdl:documentation>
+      <wsdl:input message="tns:GetResortsSoapIn" />
+      <wsdl:output message="tns:GetResortsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsToken">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing a unique token for the booking details supplied</wsdl:documentation>
+      <wsdl:input message="tns:GetParamsTokenSoapIn" />
+      <wsdl:output message="tns:GetParamsTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForFlight">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing a unique token for the flight details supplied</wsdl:documentation>
+      <wsdl:input message="tns:GetParamsTokenForFlightSoapIn" />
+      <wsdl:output message="tns:GetParamsTokenForFlightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForHotel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing a unique token for the hotel details supplied</wsdl:documentation>
+      <wsdl:input message="tns:GetParamsTokenForHotelSoapIn" />
+      <wsdl:output message="tns:GetParamsTokenForHotelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TaxiSearch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing taxi ID, max &amp; min passengers, vehicle type, description, resort name and transfer time for all taxis matching search criteria</wsdl:documentation>
+      <wsdl:input message="tns:TaxiSearchSoapIn" />
+      <wsdl:output message="tns:TaxiSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TaxiSearch2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Finds the cheapest cheapest taxis of each type for each resort id and includes airport code (IATA)</wsdl:documentation>
+      <wsdl:input message="tns:TaxiSearch2SoapIn" />
+      <wsdl:output message="tns:TaxiSearch2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelBooking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cancel a booking</wsdl:documentation>
+      <wsdl:input message="tns:CancelBookingSoapIn" />
+      <wsdl:output message="tns:CancelBookingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmationEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the confirmation email</wsdl:documentation>
+      <wsdl:input message="tns:GetConfirmationEmailSoapIn" />
+      <wsdl:output message="tns:GetConfirmationEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResendConfirmationEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Resend the confirmation email</wsdl:documentation>
+      <wsdl:input message="tns:ResendConfirmationEmailSoapIn" />
+      <wsdl:output message="tns:ResendConfirmationEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AmendBooking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Amend a booking</wsdl:documentation>
+      <wsdl:input message="tns:AmendBookingSoapIn" />
+      <wsdl:output message="tns:AmendBookingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlightTimes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Make a small flight change</wsdl:documentation>
+      <wsdl:input message="tns:UpdateFlightTimesSoapIn" />
+      <wsdl:output message="tns:UpdateFlightTimesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TaxiInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing min &amp; max passengers, the type of vehicle, transfer time, airport, resort and destination names</wsdl:documentation>
+      <wsdl:input message="tns:TaxiInfoSoapIn" />
+      <wsdl:output message="tns:TaxiInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FinalPrices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing costvalue, salevalue and msg indicating whether a night supplement was included or not</wsdl:documentation>
+      <wsdl:input message="tns:FinalPricesSoapIn" />
+      <wsdl:output message="tns:FinalPricesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BookTaxi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This books a taxi, sends emails to the supplier and the agent and then returns a recordset containing details of the booking and supplier instructions</wsdl:documentation>
+      <wsdl:input message="tns:BookTaxiSoapIn" />
+      <wsdl:output message="tns:BookTaxiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TakePayment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Make a payment</wsdl:documentation>
+      <wsdl:input message="tns:TakePaymentSoapIn" />
+      <wsdl:output message="tns:TakePaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TakeRefund">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Refund a booking</wsdl:documentation>
+      <wsdl:input message="tns:TakeRefundSoapIn" />
+      <wsdl:output message="tns:TakeRefundSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TaxiBookingAPIHttpGet">
+    <wsdl:operation name="GetSupplierTerms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing the terms and conditions for the specified supplier</wsdl:documentation>
+      <wsdl:input message="tns:GetSupplierTermsHttpGetIn" />
+      <wsdl:output message="tns:GetSupplierTermsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing supplier data for the specified supplier</wsdl:documentation>
+      <wsdl:input message="tns:GetSupplierDataHttpGetIn" />
+      <wsdl:output message="tns:GetSupplierDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUKAirports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing UK airport names and IDs</wsdl:documentation>
+      <wsdl:input message="tns:GetUKAirportsHttpGetIn" />
+      <wsdl:output message="tns:GetUKAirportsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDestinations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing destination names and IDs</wsdl:documentation>
+      <wsdl:input message="tns:GetDestinationsHttpGetIn" />
+      <wsdl:output message="tns:GetDestinationsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOverseasAirports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing airport names and IDs for the given destination</wsdl:documentation>
+      <wsdl:input message="tns:GetOverseasAirportsHttpGetIn" />
+      <wsdl:output message="tns:GetOverseasAirportsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResorts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing resort names and IDs for the given airport</wsdl:documentation>
+      <wsdl:input message="tns:GetResortsHttpGetIn" />
+      <wsdl:output message="tns:GetResortsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsToken">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing a unique token for the booking details supplied</wsdl:documentation>
+      <wsdl:input message="tns:GetParamsTokenHttpGetIn" />
+      <wsdl:output message="tns:GetParamsTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForFlight">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing a unique token for the flight details supplied</wsdl:documentation>
+      <wsdl:input message="tns:GetParamsTokenForFlightHttpGetIn" />
+      <wsdl:output message="tns:GetParamsTokenForFlightHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForHotel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing a unique token for the hotel details supplied</wsdl:documentation>
+      <wsdl:input message="tns:GetParamsTokenForHotelHttpGetIn" />
+      <wsdl:output message="tns:GetParamsTokenForHotelHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TaxiSearch2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Finds the cheapest cheapest taxis of each type for each resort id and includes airport code (IATA)</wsdl:documentation>
+      <wsdl:input message="tns:TaxiSearch2HttpGetIn" />
+      <wsdl:output message="tns:TaxiSearch2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelBooking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cancel a booking</wsdl:documentation>
+      <wsdl:input message="tns:CancelBookingHttpGetIn" />
+      <wsdl:output message="tns:CancelBookingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmationEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the confirmation email</wsdl:documentation>
+      <wsdl:input message="tns:GetConfirmationEmailHttpGetIn" />
+      <wsdl:output message="tns:GetConfirmationEmailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResendConfirmationEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Resend the confirmation email</wsdl:documentation>
+      <wsdl:input message="tns:ResendConfirmationEmailHttpGetIn" />
+      <wsdl:output message="tns:ResendConfirmationEmailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TaxiInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing min &amp; max passengers, the type of vehicle, transfer time, airport, resort and destination names</wsdl:documentation>
+      <wsdl:input message="tns:TaxiInfoHttpGetIn" />
+      <wsdl:output message="tns:TaxiInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FinalPrices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing costvalue, salevalue and msg indicating whether a night supplement was included or not</wsdl:documentation>
+      <wsdl:input message="tns:FinalPricesHttpGetIn" />
+      <wsdl:output message="tns:FinalPricesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BookTaxi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This books a taxi, sends emails to the supplier and the agent and then returns a recordset containing details of the booking and supplier instructions</wsdl:documentation>
+      <wsdl:input message="tns:BookTaxiHttpGetIn" />
+      <wsdl:output message="tns:BookTaxiHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TakePayment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Make a payment</wsdl:documentation>
+      <wsdl:input message="tns:TakePaymentHttpGetIn" />
+      <wsdl:output message="tns:TakePaymentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TakeRefund">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Refund a booking</wsdl:documentation>
+      <wsdl:input message="tns:TakeRefundHttpGetIn" />
+      <wsdl:output message="tns:TakeRefundHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TaxiBookingAPIHttpPost">
+    <wsdl:operation name="GetSupplierTerms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing the terms and conditions for the specified supplier</wsdl:documentation>
+      <wsdl:input message="tns:GetSupplierTermsHttpPostIn" />
+      <wsdl:output message="tns:GetSupplierTermsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing supplier data for the specified supplier</wsdl:documentation>
+      <wsdl:input message="tns:GetSupplierDataHttpPostIn" />
+      <wsdl:output message="tns:GetSupplierDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUKAirports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing UK airport names and IDs</wsdl:documentation>
+      <wsdl:input message="tns:GetUKAirportsHttpPostIn" />
+      <wsdl:output message="tns:GetUKAirportsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDestinations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing destination names and IDs</wsdl:documentation>
+      <wsdl:input message="tns:GetDestinationsHttpPostIn" />
+      <wsdl:output message="tns:GetDestinationsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOverseasAirports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing airport names and IDs for the given destination</wsdl:documentation>
+      <wsdl:input message="tns:GetOverseasAirportsHttpPostIn" />
+      <wsdl:output message="tns:GetOverseasAirportsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResorts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing resort names and IDs for the given airport</wsdl:documentation>
+      <wsdl:input message="tns:GetResortsHttpPostIn" />
+      <wsdl:output message="tns:GetResortsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsToken">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing a unique token for the booking details supplied</wsdl:documentation>
+      <wsdl:input message="tns:GetParamsTokenHttpPostIn" />
+      <wsdl:output message="tns:GetParamsTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForFlight">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing a unique token for the flight details supplied</wsdl:documentation>
+      <wsdl:input message="tns:GetParamsTokenForFlightHttpPostIn" />
+      <wsdl:output message="tns:GetParamsTokenForFlightHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForHotel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a structure containing a unique token for the hotel details supplied</wsdl:documentation>
+      <wsdl:input message="tns:GetParamsTokenForHotelHttpPostIn" />
+      <wsdl:output message="tns:GetParamsTokenForHotelHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TaxiSearch2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Finds the cheapest cheapest taxis of each type for each resort id and includes airport code (IATA)</wsdl:documentation>
+      <wsdl:input message="tns:TaxiSearch2HttpPostIn" />
+      <wsdl:output message="tns:TaxiSearch2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelBooking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cancel a booking</wsdl:documentation>
+      <wsdl:input message="tns:CancelBookingHttpPostIn" />
+      <wsdl:output message="tns:CancelBookingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmationEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the confirmation email</wsdl:documentation>
+      <wsdl:input message="tns:GetConfirmationEmailHttpPostIn" />
+      <wsdl:output message="tns:GetConfirmationEmailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResendConfirmationEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Resend the confirmation email</wsdl:documentation>
+      <wsdl:input message="tns:ResendConfirmationEmailHttpPostIn" />
+      <wsdl:output message="tns:ResendConfirmationEmailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TaxiInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing min &amp; max passengers, the type of vehicle, transfer time, airport, resort and destination names</wsdl:documentation>
+      <wsdl:input message="tns:TaxiInfoHttpPostIn" />
+      <wsdl:output message="tns:TaxiInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FinalPrices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset containing costvalue, salevalue and msg indicating whether a night supplement was included or not</wsdl:documentation>
+      <wsdl:input message="tns:FinalPricesHttpPostIn" />
+      <wsdl:output message="tns:FinalPricesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BookTaxi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This books a taxi, sends emails to the supplier and the agent and then returns a recordset containing details of the booking and supplier instructions</wsdl:documentation>
+      <wsdl:input message="tns:BookTaxiHttpPostIn" />
+      <wsdl:output message="tns:BookTaxiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TakePayment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Make a payment</wsdl:documentation>
+      <wsdl:input message="tns:TakePaymentHttpPostIn" />
+      <wsdl:output message="tns:TakePaymentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TakeRefund">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Refund a booking</wsdl:documentation>
+      <wsdl:input message="tns:TakeRefundHttpPostIn" />
+      <wsdl:output message="tns:TakeRefundHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TaxiBookingAPISoap" type="tns:TaxiBookingAPISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSupplierTerms">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetSupplierTerms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierData">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetSupplierData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUKAirports">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetUKAirports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDestinations">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetDestinations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverseasAirports">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetOverseasAirports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResorts">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetResorts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsToken">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetParamsToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForFlight">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetParamsTokenForFlight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForHotel">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetParamsTokenForHotel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaxiSearch">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/TaxiSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaxiSearch2">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/TaxiSearch2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelBooking">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/CancelBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmationEmail">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetConfirmationEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResendConfirmationEmail">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/ResendConfirmationEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AmendBooking">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/AmendBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlightTimes">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/UpdateFlightTimes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaxiInfo">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/TaxiInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinalPrices">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/FinalPrices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookTaxi">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/BookTaxi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakePayment">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/TakePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeRefund">
+      <soap:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/TakeRefund" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TaxiBookingAPISoap12" type="tns:TaxiBookingAPISoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSupplierTerms">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetSupplierTerms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierData">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetSupplierData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUKAirports">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetUKAirports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDestinations">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetDestinations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverseasAirports">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetOverseasAirports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResorts">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetResorts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsToken">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetParamsToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForFlight">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetParamsTokenForFlight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForHotel">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetParamsTokenForHotel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaxiSearch">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/TaxiSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaxiSearch2">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/TaxiSearch2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelBooking">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/CancelBooking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmationEmail">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/GetConfirmationEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResendConfirmationEmail">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/ResendConfirmationEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AmendBooking">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/AmendBooking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlightTimes">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/UpdateFlightTimes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaxiInfo">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/TaxiInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinalPrices">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/FinalPrices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookTaxi">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/BookTaxi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakePayment">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/TakePayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeRefund">
+      <soap12:operation soapAction="http://resorttaxis.cmhosts.net/services/TaxiBookingAPI/TakeRefund" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TaxiBookingAPIHttpGet" type="tns:TaxiBookingAPIHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetSupplierTerms">
+      <http:operation location="/GetSupplierTerms" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierData">
+      <http:operation location="/GetSupplierData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUKAirports">
+      <http:operation location="/GetUKAirports" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDestinations">
+      <http:operation location="/GetDestinations" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverseasAirports">
+      <http:operation location="/GetOverseasAirports" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResorts">
+      <http:operation location="/GetResorts" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsToken">
+      <http:operation location="/GetParamsToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForFlight">
+      <http:operation location="/GetParamsTokenForFlight" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForHotel">
+      <http:operation location="/GetParamsTokenForHotel" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaxiSearch2">
+      <http:operation location="/TaxiSearch2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelBooking">
+      <http:operation location="/CancelBooking" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmationEmail">
+      <http:operation location="/GetConfirmationEmail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResendConfirmationEmail">
+      <http:operation location="/ResendConfirmationEmail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="TaxiInfo">
+      <http:operation location="/TaxiInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinalPrices">
+      <http:operation location="/FinalPrices" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookTaxi">
+      <http:operation location="/BookTaxi" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakePayment">
+      <http:operation location="/TakePayment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeRefund">
+      <http:operation location="/TakeRefund" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TaxiBookingAPIHttpPost" type="tns:TaxiBookingAPIHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetSupplierTerms">
+      <http:operation location="/GetSupplierTerms" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierData">
+      <http:operation location="/GetSupplierData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUKAirports">
+      <http:operation location="/GetUKAirports" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDestinations">
+      <http:operation location="/GetDestinations" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverseasAirports">
+      <http:operation location="/GetOverseasAirports" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResorts">
+      <http:operation location="/GetResorts" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsToken">
+      <http:operation location="/GetParamsToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForFlight">
+      <http:operation location="/GetParamsTokenForFlight" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamsTokenForHotel">
+      <http:operation location="/GetParamsTokenForHotel" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaxiSearch2">
+      <http:operation location="/TaxiSearch2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelBooking">
+      <http:operation location="/CancelBooking" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmationEmail">
+      <http:operation location="/GetConfirmationEmail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResendConfirmationEmail">
+      <http:operation location="/ResendConfirmationEmail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="TaxiInfo">
+      <http:operation location="/TaxiInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinalPrices">
+      <http:operation location="/FinalPrices" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookTaxi">
+      <http:operation location="/BookTaxi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakePayment">
+      <http:operation location="/TakePayment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeRefund">
+      <http:operation location="/TakeRefund" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TaxiBookingAPI">
+    <wsdl:port name="TaxiBookingAPISoap" binding="tns:TaxiBookingAPISoap">
+      <soap:address location="http://localhost:4149/service/TaxiBookingAPI.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TaxiBookingAPISoap12" binding="tns:TaxiBookingAPISoap12">
+      <soap12:address location="http://localhost:4149/service/TaxiBookingAPI.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TaxiBookingAPIHttpGet" binding="tns:TaxiBookingAPIHttpGet">
+      <http:address location="http://localhost:4149/service/TaxiBookingAPI.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TaxiBookingAPIHttpPost" binding="tns:TaxiBookingAPIHttpPost">
+      <http:address location="http://localhost:4149/service/TaxiBookingAPI.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
