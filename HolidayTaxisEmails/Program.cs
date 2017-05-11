@@ -18,13 +18,13 @@ namespace HolidayTaxisEmails
                 "Data Source=localhost\\SQLEXPRESS;Database=Transfers;Integrated Security=true",
                 "http://localhost:4149/service/TaxiBookingAPI.asmx",
                 150,
-                false);
+                true);
 
             // LIVE
             //Run("https://www.onthebeach.co.uk/a/admin/api/v3/transfers/",
             //    "Data Source=172.21.3.114;Initial Catalog=OnTheBeachTransfers;Integrated Security=True;multipleactiveresultsets=True;App=HolidayTaxisVoucherUpdate",
             //    "http://www.onthebeachtransfers.co.uk/service/TaxiBookingAPI.asmx",
-            //    100);
+            //    1);
             //    true);
 
         }
@@ -52,7 +52,15 @@ namespace HolidayTaxisEmails
 
                     if (updateVoucher)
                     {
-                        UpdateVoucher(adminEndpoint, booking.BookingReference.ToString(), voucherText);
+                        try
+                        {
+                            UpdateVoucher(adminEndpoint, booking.BookingReference.ToString(), voucherText);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Error updating voucher: RT-" + booking.BookingReference);
+                            continue;
+                        }
                     }
 
                     // UPDATE NEW DB TABLE
