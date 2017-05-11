@@ -1,0 +1,9 @@
+SQL to generate list of bookings :
+
+SELECT b.book_ref AS BookingReference ,CASE  WHEN ot.out_id IS NULL THEN it.intran_dep_date  ELSE ot.out_arrival_date END AS DepartureDate ,0 AS PaperworkRegeneratedINTO BookingsRegeneratePaperwork
+FROM Bookings b 
+LEFT JOIN OutboundTransfers ot ON b.book_ref=ot.book_ref 
+LEFT JOIN InboundTransfers it ON b.book_ref=it.book_ref 
+INNER JOIN Taxis t ON b.taxi_id=t.taxi_id 
+INNER JOIN SupplierMigration sm ON t.sup_id=sm.new_sup_id
+WHERE b.book_status='L'
