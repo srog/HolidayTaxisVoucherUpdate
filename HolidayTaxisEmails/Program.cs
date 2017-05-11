@@ -21,7 +21,7 @@ namespace HolidayTaxisEmails
                 false);
 
             // LIVE
-            //Run("https://www.sandbox5.onthebeach.co.uk/a/admin/api/v3/transfers/",
+            //Run("https://www.onthebeach.co.uk/a/admin/api/v3/transfers/",
             //    "Data Source=172.21.3.114;Initial Catalog=OnTheBeachTransfers;Integrated Security=True;multipleactiveresultsets=True;App=HolidayTaxisVoucherUpdate",
             //    "http://www.onthebeachtransfers.co.uk/service/TaxiBookingAPI.asmx",
             //    100);
