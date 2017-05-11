@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetMockServiceData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="payload" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMockServiceDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMockServiceDataResult" type="tns:HttpStatusCode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="HttpStatusCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="Continue" />
+          <s:enumeration value="SwitchingProtocols" />
+          <s:enumeration value="OK" />
+          <s:enumeration value="Created" />
+          <s:enumeration value="Accepted" />
+          <s:enumeration value="NonAuthoritativeInformation" />
+          <s:enumeration value="NoContent" />
+          <s:enumeration value="ResetContent" />
+          <s:enumeration value="PartialContent" />
+          <s:enumeration value="MultipleChoices" />
+          <s:enumeration value="Ambiguous" />
+          <s:enumeration value="MovedPermanently" />
+          <s:enumeration value="Moved" />
+          <s:enumeration value="Found" />
+          <s:enumeration value="Redirect" />
+          <s:enumeration value="SeeOther" />
+          <s:enumeration value="RedirectMethod" />
+          <s:enumeration value="NotModified" />
+          <s:enumeration value="UseProxy" />
+          <s:enumeration value="Unused" />
+          <s:enumeration value="TemporaryRedirect" />
+          <s:enumeration value="RedirectKeepVerb" />
+          <s:enumeration value="BadRequest" />
+          <s:enumeration value="Unauthorized" />
+          <s:enumeration value="PaymentRequired" />
+          <s:enumeration value="Forbidden" />
+          <s:enumeration value="NotFound" />
+          <s:enumeration value="MethodNotAllowed" />
+          <s:enumeration value="NotAcceptable" />
+          <s:enumeration value="ProxyAuthenticationRequired" />
+          <s:enumeration value="RequestTimeout" />
+          <s:enumeration value="Conflict" />
+          <s:enumeration value="Gone" />
+          <s:enumeration value="LengthRequired" />
+          <s:enumeration value="PreconditionFailed" />
+          <s:enumeration value="RequestEntityTooLarge" />
+          <s:enumeration value="RequestUriTooLong" />
+          <s:enumeration value="UnsupportedMediaType" />
+          <s:enumeration value="RequestedRangeNotSatisfiable" />
+          <s:enumeration value="ExpectationFailed" />
+          <s:enumeration value="UpgradeRequired" />
+          <s:enumeration value="InternalServerError" />
+          <s:enumeration value="NotImplemented" />
+          <s:enumeration value="BadGateway" />
+          <s:enumeration value="ServiceUnavailable" />
+          <s:enumeration value="GatewayTimeout" />
+          <s:enumeration value="HttpVersionNotSupported" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMockServiceDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMockServiceData" />
+  </wsdl:message>
+  <wsdl:message name="GetMockServiceDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMockServiceDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MockServiceSoap">
+    <wsdl:operation name="GetMockServiceData">
+      <wsdl:input message="tns:GetMockServiceDataSoapIn" />
+      <wsdl:output message="tns:GetMockServiceDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MockServiceSoap" type="tns:MockServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMockServiceData">
+      <soap:operation soapAction="http://tempuri.org/GetMockServiceData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MockServiceSoap12" type="tns:MockServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMockServiceData">
+      <soap12:operation soapAction="http://tempuri.org/GetMockServiceData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MockService">
+    <wsdl:port name="MockServiceSoap" binding="tns:MockServiceSoap">
+      <soap:address location="http://localhost:63088/MockService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MockServiceSoap12" binding="tns:MockServiceSoap12">
+      <soap12:address location="http://localhost:63088/MockService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

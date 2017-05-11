@@ -6,6 +6,7 @@ using System.ServiceModel;
 using Dapper;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using HttpStatusCode = HolidayTaxisEmails.MockService.HttpStatusCode;
 
 namespace HolidayTaxisEmails
 {
@@ -13,12 +14,20 @@ namespace HolidayTaxisEmails
     {
         static void Main(string[] args)
         {
-            // TEST
-            Run("https://www.sandbox5.onthebeach.co.uk/a/admin/api/v3/transfers/", 
+            // TEST - MOCK SERVICE
+            Run("http://localhost:63088/MockService.asmx",
                 "Data Source=localhost\\SQLEXPRESS;Database=Transfers;Integrated Security=true",
                 "http://localhost:4149/service/TaxiBookingAPI.asmx",
-                150,
-                true);
+                3,
+                false);
+
+
+            // TEST - SANDBOX
+            //Run("https://www.sandbox5.onthebeach.co.uk/a/admin/api/v3/transfers/", 
+            //    "Data Source=localhost\\SQLEXPRESS;Database=Transfers;Integrated Security=true",
+            //    "http://localhost:4149/service/TaxiBookingAPI.asmx",
+            //    3,
+            //    true);
 
             // LIVE
             //Run("https://www.onthebeach.co.uk/a/admin/api/v3/transfers/",
@@ -62,6 +71,18 @@ namespace HolidayTaxisEmails
                             continue;
                         }
                     }
+                    else
+                    {
+                        try
+                        {
+                            CallMockService(adminEndpoint, booking.BookingReference.ToString(), voucherText);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Error calling mock service: RT-" + booking.BookingReference);
+                            continue;
+                        }
+                    }
 
                     // UPDATE NEW DB TABLE
                     var result = conn.Execute(
@@ -93,7 +114,23 @@ namespace HolidayTaxisEmails
 
             var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
             var payload = JsonConvert.SerializeObject(new UpdateVoucherRequest(bookingReference, voucherText), settings);
+            
+
             client.UploadString(endpointAddress, "PUT", payload);
+        }
+
+        private static void CallMockService(string endpoint, string bookingReference, string voucherText)
+        {
+            var client = new MockService.MockServiceSoapClient(new BasicHttpBinding(), 
+                                                                new EndpointAddress(endpoint));
+            var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+            var payload = JsonConvert.SerializeObject(new UpdateVoucherRequest(bookingReference, voucherText), settings);
+
+            var httpResponse = client.GetMockServiceData(payload);
+            if (httpResponse != HttpStatusCode.OK)
+            {
+                throw new Exception("Invalid Request");
+            }
         }
     }
 }
